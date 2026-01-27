@@ -54,3 +54,51 @@ window.addEventListener('scroll', () => {
         navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
     }
 });
+}// Dans votre script.js - SOLUTION COMPLÈTE
+const contactForm = document.querySelector('.contact-form');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalHTML = submitBtn.innerHTML;
+        
+        // Animation
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
+        submitBtn.disabled = true;
+        
+        // Détecter si on est en local ou en ligne
+        const isLocal = window.location.protocol === 'file:';
+        
+        if (isLocal) {
+            // EN LOCAL : Ouvrir Gmail
+            setTimeout(() => {
+                const name = this.querySelector('[name="name"]').value;
+                const email = this.querySelector('[name="email"]').value;
+                const message = this.querySelector('[name="message"]').value;
+                
+                const subject = `Message Portfolio - ${name}`;
+                const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+                
+                // Ouvrir client email
+                window.location.href = `mailto:konanulrich38@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                
+                // Feedback
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Email ouvert !';
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalHTML;
+                    submitBtn.disabled = false;
+                    this.reset();
+                }, 2000);
+            }, 1500);
+            
+        } else {
+            // EN LIGNE : Envoyer via FormSubmit
+            // Laisser FormSubmit gérer normalement
+            setTimeout(() => {
+                this.submit(); // Soumission normale
+            }, 1500);
+        }
+    });
+}
