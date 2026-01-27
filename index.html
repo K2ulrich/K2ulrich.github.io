@@ -131,26 +131,43 @@
         </div>
     </section>
 
-    <!-- Section Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2>Vous avez un projet en tête ?</h2>
-            <p>N'hésitez pas à me contacter pour discuter de vos idées.</p>
-            <form id="contactForm" class="contact-form">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <textarea placeholder="Votre message" rows="5" required></textarea>
-                <button type="submit" class="btn">Envoyer le message</button>
-            </form>
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/ulrich-konan-a93090299?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/K2ulrich"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:konanulrich38@gmail.com"><i class="fas fa-envelope"></i></a>
+!-- Section Contact - Version améliorée -->
+<section id="contact" class="contact">
+    <div class="container">
+        <h2>Vous avez un projet en tête ?</h2>
+        <p>N'hésitez pas à me contacter pour discuter de vos idées.</p>
+        
+        <!-- Formulaire avec ID pour JavaScript -->
+        <form id="contactForm" action="https://formsubmit.co/konanulrich38@gmail.com" method="POST" class="contact-form">
+            <!-- Champs cachés FormSubmit -->
+            <input type="hidden" name="_subject" value="💼 Message Portfolio - Ulrich Konan">
+            <input type="hidden" name="_autoresponse" value="Merci pour votre message ! Je vous répondrai dans les 24h. - Ulrich Konan">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            
+            <!-- Champs visuels -->
+            <div class="form-group">
+                <input type="text" name="name" id="contactName" placeholder="Votre nom" required>
             </div>
+            <div class="form-group">
+                <input type="email" name="email" id="contactEmail" placeholder="Votre email" required>
+            </div>
+            <div class="form-group">
+                <textarea name="message" id="contactMessage" placeholder="Décrivez votre projet..." rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn submit-btn">
+                <i class="fas fa-paper-plane"></i> Envoyer le message
+            </button>
+        </form>
+        
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/ulrich-konan-a93090299" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/K2ulrich" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:konanulrich38@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer>
